@@ -13,7 +13,11 @@ object JMXRunnerMain extends App {
   def jmxRunner[A]: MBeanAction[A] => IO[Throwable \/ A] =
     runJMX(jmxUrl("kafka-test", 9093)) _
 
-  def myAction(c: MBeanServerConnection) = IO.putStrLn(c.getDomains.mkString("|"))
+  def printDomainsAction(c: MBeanServerConnection) =
+    IO.putStrLn("Domains: " + c.getDomains.mkString("|"))
 
-  jmxRunner(myAction).unsafePerformIO
+  def printMBeansCount(c: MBeanServerConnection) =
+    IO.putStrLn("MBean count: " + c.getMBeanCount.toString)
+
+  jmxRunner(c => printDomainsAction(c) >> printMBeansCount(c)).unsafePerformIO
 }
