@@ -2,6 +2,13 @@
 
 A JMX client for Kafka metrics.
 
+=== Status
+
+This is a work in progress. There is a lot left to do such as:
+
+* add JMX notification listener support
+* add scalaz-stream integration
+
 === Prerequisites
 
 1. Java 8
