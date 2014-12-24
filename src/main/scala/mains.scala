@@ -11,7 +11,7 @@ object JMXRunnerMain extends App {
   import functionalops.kafka.metrics.core._
 
   def jmxRunner[A]: MBeanAction[A] => IO[Throwable \/ A] =
-    runJMX(jmxUrl("kafka-test", 9093)) _
+    runJMX(createJMXUrl("kafka-test", 9093)) _
 
   def printDomainsAction(c: MBeanServerConnection) =
     IO.putStrLn("Domains: " + c.getDomains.mkString("|"))
