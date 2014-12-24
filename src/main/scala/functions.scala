@@ -10,6 +10,9 @@ import javax.management.remote._
 trait Functions extends Instances {
   type MBeanAction[A] = MBeanServerConnection => IO[A]
 
+  def jmxUrl(host: String, port: Int) =
+    new JMXServiceURL(s"service:jmx:rmi:///jndi/rmi://${host}:${port}/jmxrmi")
+
   def runJMX[A](jmxUrl: JMXServiceURL)(action: MBeanAction[A]): IO[Throwable \/ A] =
     IO(initJMX(jmxUrl)).bracket(closeJMX)(toMBeanServerConn(_)(action)).catchLeft
 
