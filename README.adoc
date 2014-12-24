@@ -20,6 +20,20 @@ Inside the root directory of the repository:
 
         > test
 
+3. Try a basic example:
+
+        scala> import functionalops.kafka.metrics._
+        import functionalops.kafka.metrics._
+
+        scala> JMXRunnerMain.main(Array.empty[String])
+        JMImplementation|com.sun.management|java.nio|"kafka.cluster"|ServiceStatus|"kafka.consumer"|"kafka.log"|kafka|"kafka.server"|kafka.controller|java.lang|"kafka.network"|"kafka.controller"|java.util.logging
+
+[NOTE]
+----
+Make sure you change `kafka-test` hostname and `9093` port to the appropriate
+values
+----
+
 === Code Structure
 
 I use a less common structure to my code than many Scala projects so here is
