@@ -1,5 +1,7 @@
 == kafka-metrics
 
+image:https://travis-ci.org/functionalops/kafka-metrics.svg?branch=master["Build Status", link="https://travis-ci.org/functionalops/kafka-metrics"]
+
 A JMX client for Kafka metrics.
 
 === Status
