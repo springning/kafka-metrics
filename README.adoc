@@ -19,7 +19,7 @@ This is a work in progress. There is a lot left to do such as:
 
 === License
 
-This is released under the BSD 3-clause license. See link:LICENSE for details.
+This is released under the BSD 3-clause license. See link:LICENSE[] for details.
 
 === Getting Started
 
